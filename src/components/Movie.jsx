@@ -4,30 +4,29 @@ import MovieList from "./MovieList";
 import MovieLoader from "./MovieLoader";
 import {
   API_KEY,
+  PATH_MOVIE,
   PATH_SEARCH,
   PATH_PAGE,
   DEFAULT_PAGE,
   PATH_BASE,
-  PATH_TRENDING,
-  PATH_MOVIE,
-  PATH_WEEK,
 } from "../config/configAPI";
 import axios from "axios";
 import { getGenres } from "../config/genre";
 import Pagination from "./Pagination";
+import Footer from "./Footer";
 
-const Changes = () => {
+const Movie = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
-  const [sortValue, setSortValue] = useState("all");
+  const [sortValue, setSortValue] = useState("popular");
   const [bounce] = useState(true);
 
   useEffect(() => {
     const fetchAPI = async () => {
-      const url = `${PATH_BASE}${PATH_TRENDING}/${sortValue}${PATH_WEEK}?api_key=${API_KEY}${PATH_PAGE}${currentPage}`;
+      const url = `${PATH_BASE}${PATH_MOVIE}/${sortValue}?api_key=${API_KEY}${PATH_PAGE}${currentPage}`;
       try {
         const response = await axios.get(url);
         let movies = response.data.results;
@@ -64,11 +63,13 @@ const Changes = () => {
 
   const handleSortValue = (value) => {
     if (value === "Top Rated") {
-      setSortValue("movie");
+      setSortValue("top_rated");
     } else if (value === "Now Playing") {
-      setSortValue("tv");
+      setSortValue("now_playing");
     } else if (value === "Up Coming") {
-      setSortValue("person");
+      setSortValue("upcoming");
+    } else if (value === "Populaity") {
+      setSortValue("popular");
     }
   };
 
@@ -83,7 +84,8 @@ const Changes = () => {
         sortValue={sortValue}
         onValueSelect={handleSortValue}
       />
-      <div className="flex-container">
+
+      <main className="flex-container">
         <div className="content-flex">
           <MovieLoader movies={movies} loading={loading} bounce={bounce} />
           <MovieList movies={movies} onGenres={handleGenres} />
@@ -93,9 +95,10 @@ const Changes = () => {
             onPageChange={handlePageChange}
           />
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };
 
-export default Changes;
+export default Movie;

@@ -17,9 +17,9 @@ const Header = ({ onSearch, searchTerm, sortValue, onValueSelect }) => {
         </Link>
         <ul className="header__sidebar">
           <li className="header__item">
+            <Link to="/movie">Moive</Link>
             <Link to="/TV_Show">Tv Show</Link>
             <Link to="/trending">Trending</Link>
-            <Link to="/changes">Changes</Link>
           </li>
         </ul>
       </div>

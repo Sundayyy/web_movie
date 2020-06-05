@@ -6,7 +6,9 @@ const MovieLoader = ({ movies, loading, bounce }) => {
   if (movies.length === 0 && loading) {
     return (
       <div className="flex-center">
-        <Spinner />
+        <div className="sweet-loading">
+          <Spinner />
+        </div>
       </div>
     );
   } else if (movies.length === 0 && !loading) {

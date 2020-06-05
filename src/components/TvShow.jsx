@@ -13,6 +13,7 @@ import {
 import axios from "axios";
 import { getGenres } from "../config/genre";
 import Pagination from "./Pagination";
+import Footer from "./Footer";
 
 const TvShow = () => {
   const [loading, setLoading] = useState(true);
@@ -83,7 +84,7 @@ const TvShow = () => {
         sortValue={sortValue}
         onValueSelect={handleSortValue}
       />
-      <div className="flex-container">
+      <main className="flex-container">
         <div className="content-flex">
           <MovieLoader movies={movies} loading={loading} bounce={bounce} />
           <MovieList movies={movies} onGenres={handleGenres} />
@@ -93,7 +94,8 @@ const TvShow = () => {
             onPageChange={handlePageChange}
           />
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };

@@ -1,9 +1,9 @@
 .search {
   display: flex;
-  flex: 0 0 30%;
+  flex: 0 0 35%;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 150px;
   &__input {
     font-family: inherit;
     font-size: 1.5rem;
@@ -12,7 +12,7 @@
     border: none;
     transition: all 0.2s ease-in-out;
     margin-right: -3rem;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     border-radius: 10rem;
     width: 90%;
 

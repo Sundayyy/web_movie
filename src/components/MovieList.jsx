@@ -7,7 +7,7 @@ const MovieList = ({ movies, onGenres }) => {
   return (
     <section className="flex-grid">
       {movies.map((movie) => (
-        <Fade key={movie.id}>
+        <Fade top key={movie.id}>
           <div className="card" to={`movie/${movie.id}`}>
             <Link to={`/movie/${movie.id}`} className="card__inner-wrapper">
               <img

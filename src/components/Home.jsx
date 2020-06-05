@@ -13,6 +13,7 @@ import {
 import axios from "axios";
 import { getGenres } from "../config/genre";
 import Pagination from "./Pagination";
+import Footer from "./Footer";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -31,7 +32,6 @@ const Home = () => {
         let movies = response.data.results;
         setMovies(movies);
         setLoading(false);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -83,7 +83,7 @@ const Home = () => {
         sortValue={sortValue}
         onValueSelect={handleSortValue}
       />
-      <div className="flex-container">
+      <main className="flex-container">
         <div className="content-flex">
           <MovieLoader movies={movies} loading={loading} bounce={bounce} />
           <MovieList movies={movies} onGenres={handleGenres} />
@@ -93,7 +93,8 @@ const Home = () => {
             onPageChange={handlePageChange}
           />
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };

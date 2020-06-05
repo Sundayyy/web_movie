@@ -13,5 +13,8 @@ export const PATH_WEEK = "/week";
 
 export const DEFAULT_PAGE = 1;
 export const PATH_PAGE = "&page=";
+export const PATH_IMAGE = "https://image.tmdb.org/t/p/w200";
 
-export const PATH_IMAGE = "https://image.tmdb.org/t/p/w300";
+export const PATH_YOUTUBE = "https://www.youtube.com/watch?v=";
+
+export const PATH_BG_IMAGE = "https://image.tmdb.org/t/p/w1280";

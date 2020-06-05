@@ -3,9 +3,9 @@
   margin: 0 auto;
   &__input {
     width: 12rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-align: left;
-    padding: 1rem 1.7rem;
+    padding: 0.7rem 1rem;
     color: #7678fb;
     background-color: #1c223a;
     border-radius: 3px;
@@ -30,7 +30,7 @@
   &__item {
     text-decoration: none;
     display: block;
-    padding: 0.65rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
 
     &:hover {

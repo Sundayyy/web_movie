@@ -15,6 +15,7 @@ import {
 import axios from "axios";
 import { getGenres } from "../config/genre";
 import Pagination from "./Pagination";
+import Footer from "./Footer";
 
 const People = () => {
   const [loading, setLoading] = useState(true);
@@ -33,7 +34,6 @@ const People = () => {
         let movies = response.data.results;
         setMovies(movies);
         setLoading(false);
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -64,17 +64,18 @@ const People = () => {
 
   const handleSortValue = (value) => {
     if (value === "Top Rated") {
-      setSortValue("movie");
-    } else if (value === "Now Playing") {
       setSortValue("tv");
+    } else if (value === "Now Playing") {
+      setSortValue("movie");
     } else if (value === "Up Coming") {
-      setSortValue("person");
+      setSortValue("all");
     }
   };
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
   return (
     <div className="container">
       <Header
@@ -83,7 +84,7 @@ const People = () => {
         sortValue={sortValue}
         onValueSelect={handleSortValue}
       />
-      <div className="flex-container">
+      <main className="flex-container">
         <div className="content-flex">
           <MovieLoader movies={movies} loading={loading} bounce={bounce} />
           <MovieList movies={movies} onGenres={handleGenres} />
@@ -93,7 +94,8 @@ const People = () => {
             onPageChange={handlePageChange}
           />
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 };
