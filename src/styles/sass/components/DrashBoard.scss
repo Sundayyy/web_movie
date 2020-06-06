@@ -46,6 +46,12 @@
     height: 100%;
   }
 }
+.flex-center {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .dashboard {
   width: 100rem;

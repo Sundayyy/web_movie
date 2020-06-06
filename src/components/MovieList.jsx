@@ -1,13 +1,13 @@
 import React from "react";
-import { Fade } from "react-reveal";
 import { Link } from "react-router-dom";
 import { PATH_IMAGE } from "../config/configAPI";
+import { Fade } from "react-reveal";
 import placeholderImg from "../img/placeholderImg.jpg";
 const MovieList = ({ movies, onGenres }) => {
   return (
     <section className="flex-grid">
       {movies.map((movie) => (
-        <Fade top key={movie.id}>
+        <Fade left className="flex-grid__four" key={movie.id}>
           <div className="card" to={`movie/${movie.id}`}>
             <Link to={`/movie/${movie.id}`} className="card__inner-wrapper">
               <img
@@ -23,7 +23,9 @@ const MovieList = ({ movies, onGenres }) => {
                 <i className="card__icon fa fa-star" />
                 <span>{movie.vote_average.toFixed(1)} </span>
               </div>
-              <p className="card__title">{movie.title}</p>
+              <p className="card__title">
+                {movie.title ? movie.title : movie.original_name}
+              </p>
               <p className="card__genre">{onGenres(movie)}</p>
             </Link>
           </div>

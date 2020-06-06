@@ -33,23 +33,36 @@
   flex-direction: column;
   padding: 3.5rem;
   background-color: #171934;
-}
-
-.flex-grid {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 0 0 11rem;
-}
-
-.flex-center {
-  height: 100%;
-  display: flex;
+  width: inherit;
   justify-content: center;
   align-items: center;
 }
 
-.not-found {
-  padding: 1rem;
-  color: #edf2f5;
+.flex-grid {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+
+  &__four {
+    display: grid;
+    justify-content: center;
+  }
+
+  .flex-center {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .not-found {
+    padding: 1rem;
+    color: #edf2f5;
+  }
+}
+
+.react-reveal.card {
+  display: grid;
+  justify-content: center;
 }

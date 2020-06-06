@@ -63,9 +63,7 @@ const Dashbox = (props) => {
       <section className="dashboard">
         {handleLoader()}
         <div className="flex-center">
-          <div className="sweet-loading">
-            <Spinner />
-          </div>
+          <Spinner />
         </div>
       </section>
     );
@@ -74,7 +72,6 @@ const Dashbox = (props) => {
   if (trailers === 0 || movie.id === undefined) {
     return <NotFound />;
   }
-  console.log(movie);
   return (
     <React.Fragment>
       <div className="dashboard-bg" style={bgImg}></div>
@@ -136,6 +133,7 @@ const Dashbox = (props) => {
                   <a
                     href={`https://www.themoviedb.org/movie/${movie.id}/cast`}
                     className="dashboard__btn"
+                    target="_blank"
                   >
                     Full Cast
                     <div

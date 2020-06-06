@@ -1,8 +1,8 @@
 .card {
   margin-bottom: 2rem;
-  width: 25%;
+
   &__inner-wrapper {
-    width: 50%;
+    width: 100%;
     font-size: 1.2rem;
     position: relative;
     cursor: pointer;
@@ -11,7 +11,6 @@
     color: #737783;
   }
   &__img {
-    width: 100%;
     height: 34.2rem;
     border-radius: 0.8rem;
   }
@@ -20,6 +19,7 @@
     font-weight: 700;
     color: #edf2f5;
     margin-top: 0.5rem;
+    width: 220px;
   }
 
   &__rating {
