@@ -1,13 +1,41 @@
+// Mixin
+@mixin responsive($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    } // 600px
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    } // 900px
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    } // 1200px
+  }
+}
+
 .footer {
   display: flex;
   justify-content: center;
   height: 50px;
   position: relative;
+  @include responsive(phone) {
+    height: 34px;
+  }
   &__h3 {
     display: inline-block;
     position: relative;
     margin: 0.6rem;
     font-size: initial;
+    color: #fff;
+    @include responsive(phone) {
+      font-size: 1.5rem;
+    }
   }
 
   &__small {
@@ -20,7 +48,11 @@
   position: relative;
   top: 5px;
   width: 30px;
+  letter-spacing: 1px;
   animation: pulse 1s ease infinite;
+  @include responsive(phone) {
+    width: 20px;
+  }
 }
 
 @keyframes pulse {

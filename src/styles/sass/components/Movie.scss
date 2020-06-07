@@ -1,3 +1,36 @@
+// Mixin
+@mixin responsive($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 34.5em) {
+      @content;
+    } // 550px
+  }
+
+  @if $breakpoint == tab {
+    @media (max-width: 47.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media (max-width: 56.25em) {
+      @content;
+    } // 900px
+  }
+
+  @if $breakpoint == desktop {
+    @media (max-width: 75em) {
+      @content;
+    } // 1200px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    } //1800px
+  }
+}
+
 .card {
   margin-bottom: 2rem;
 
@@ -11,15 +44,39 @@
     color: #737783;
   }
   &__img {
-    height: 34.2rem;
+    height: 33.2rem;
     border-radius: 0.8rem;
+
+    @include responsive(phone) {
+      height: 30.2rem;
+    }
+
+    @include responsive(tablet) {
+      height: 30.2rem;
+    }
+
+    @include responsive(tab) {
+      height: 30.2rem;
+    }
   }
 
   &__title {
     font-weight: 700;
     color: #edf2f5;
     margin-top: 0.5rem;
-    width: 220px;
+    width: 225px;
+
+    @include responsive(phone) {
+      width: 159px;
+    }
+
+    @include responsive(tab) {
+      width: 158px;
+    }
+
+    @include responsive(tablet) {
+      width: 158px;
+    }
   }
 
   &__rating {

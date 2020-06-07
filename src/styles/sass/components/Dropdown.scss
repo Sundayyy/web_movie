@@ -1,17 +1,46 @@
+// Mixin
+@mixin responsive($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    } // 600px
+  }
+
+  @if $breakpoint == board {
+    @media (max-width: 56.25em) {
+      @content;
+    } // 900px
+  }
+
+  @if $breakpoint == desktop {
+    @media (max-width: 80em) {
+      @content;
+    } // 1200px
+  }
+}
+
 .dropdown {
   position: relative;
   margin: 0 auto;
-  &__input {
-    width: 12rem;
-    font-size: 1.4rem;
+  .dropdown__input {
+    width: 16rem;
+    font-size: 1.5rem;
     text-align: left;
-    padding: 0.7rem 1rem;
+    padding: 0.8rem 2.5rem;
     color: #7678fb;
     background-color: #1c223a;
     border-radius: 3px;
     border: none;
     outline: none;
     cursor: pointer;
+    @include responsive(phone) {
+      width: 13rem;
+      text-align: center;
+    }
+    @include responsive(board) {
+      width: 10rem;
+      padding: 0.8rem 0.3rem;
+    }
   }
 
   &__content {
@@ -30,8 +59,13 @@
   &__item {
     text-decoration: none;
     display: block;
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 2.5rem;
     cursor: pointer;
+
+    @include responsive(board) {
+      padding: 0.5rem 0.2rem;
+      font-size: 1.5rem;
+    }
 
     &:hover {
       background-color: #0c0f26;

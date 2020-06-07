@@ -87,6 +87,7 @@
     margin: 1.9rem;
     outline: none;
     z-index: 10;
+ 
   }
 
   &__tagline {
@@ -169,4 +170,9 @@
   &__icon {
     font-size: 1.8rem;
   }
+}
+
+.react-player {
+  width: 960px;
+  height: 560px;
 }

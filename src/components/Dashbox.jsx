@@ -94,10 +94,11 @@ const Dashbox = (props) => {
 
             <div className="dashboard__video">
               <ReactPlayer
+                className="react-player"
                 url={url}
                 controls={true}
-                width="960px"
-                height="560px"
+                width="100%"
+                height="100%"
               />
               {!movie.tagline ? (
                 ""
@@ -133,7 +134,7 @@ const Dashbox = (props) => {
                   <a
                     href={`https://www.themoviedb.org/movie/${movie.id}/cast`}
                     className="dashboard__btn"
-                    target="_blank"
+                    target="blank"
                   >
                     Full Cast
                     <div

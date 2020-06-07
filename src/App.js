@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import TvShow from "./components/TvShow";
 import Trending from "./components/Trending";
 import DashBox from "./components/Dashbox";
-import NotFound from "./components/404NotFound";
+import NotFound from "./components/NotFound";
 const App = () => {
   return (
     <Router>
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/trending" component={Trending} exact />
           <Route path="/movie" component={Home} exact />
           <Route path="/movie/:id" component={DashBox} exact />
-          <Route path="/404NotFound" component={NotFound} />
+          <Route path="/notfo_found" component={NotFound} />
         </Switch>
       </React.Fragment>
     </Router>

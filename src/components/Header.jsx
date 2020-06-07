@@ -9,10 +9,9 @@ const Header = ({ onSearch, searchTerm, sortValue, onValueSelect }) => {
       <div className="header__wraper">
         <Link to="/">
           <img
+            className="header__img"
             src={TMDB}
             alt="The Movie Database (TMDb)"
-            width="154"
-            height="20"
           />
         </Link>
         <ul className="header__sidebar">
