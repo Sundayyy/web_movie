@@ -22,11 +22,11 @@
   @if $breakpoint == desktop {
     @media (max-width: 80em) {
       @content;
-    } // 1200px
+    } // 1280px
   }
 
-  @if $breakpoint == big-desktop {
-    @media (min-width: 112.5em) {
+  @if $breakpoint == Bigdesktop {
+    @media (max-width: 112.5em) {
       @content;
     } //1800px
   }
@@ -105,41 +105,43 @@
   width: inherit;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
   @include responsive(phone) {
+    padding: 3.5rem 0 3.5rem 0;
+  }
+
+  @include responsive(tablet) {
     padding: 3.5rem 0 3.5rem 0;
   }
 }
 
-@include responsive(phone) {
-  min-height: 100vh;
-}
-
 .flex-grid {
-  width: 65%;
+  width: 62%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   text-align: center;
 
-  @include responsive(phone) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+  @include responsive(Bigdesktop) {
+    width: 70%;
+  }
+
+  @include responsive(desktop) {
+    width: 90%;
+  }
+
+  @include responsive(tablet) {
     width: 100%;
   }
 
   @include responsive(tab) {
     grid-template-columns: repeat(3, 1fr);
-    display: grid;
-    align-items: center;
-    width: 100%;
-  }
-  @include responsive(tablet) {
-    grid-template-columns: repeat(4, 1fr);
-    display: grid;
-    align-items: center;
     width: 100%;
   }
 
+  @include responsive(phone) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
   .flex-center {
     height: 100%;
     display: flex;

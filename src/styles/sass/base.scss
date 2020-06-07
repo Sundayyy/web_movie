@@ -36,11 +36,11 @@
     } // 1200px
   }
 
-  // @if $breakpoint == big-desktop {
-  //   @media (min-width: 112.5em) {
-  //     @content;
-  //   } //1800px
-  // }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 100em) {
+      @content;
+    } //1800px
+  }
 }
 
 html {
@@ -68,7 +68,7 @@ html {
 
   @include responsive(big-desktop) {
     //widh >= 1800px?
-    font-size: 75%;
+    font-size: 62.5%;
   }
 }
 

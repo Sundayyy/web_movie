@@ -11,9 +11,8 @@ import {
   PATH_YOUTUBE,
   PATH_BG_IMAGE,
 } from "../config/configAPI";
-import Spinner from "./Spinner";
 import StarRatingComponent from "react-star-rating-component";
-
+import { PacmanLoader } from "react-spinners";
 const Dashbox = (props) => {
   let { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -49,7 +48,7 @@ const Dashbox = (props) => {
   }, [id]);
 
   const handleLoader = () => {
-    setTimeout(() => setLoading(false), 1500);
+    setTimeout(() => setLoading(false), 2000);
   };
 
   const handleHome = () => {
@@ -58,12 +57,17 @@ const Dashbox = (props) => {
   const bgImg = {
     backgroundImage: `url(${PATH_BG_IMAGE}${movie.backdrop_path})`,
   };
-  if (!movie.backdrop_path && loading) {
+  if (loading) {
     return (
       <section className="dashboard">
         {handleLoader()}
         <div className="flex-center">
-          <Spinner />
+          <PacmanLoader
+            size={25}
+            sizeUnit={"px"}
+            color={"#faca31"}
+            loading={loading}
+          />
         </div>
       </section>
     );
@@ -97,8 +101,8 @@ const Dashbox = (props) => {
                 className="react-player"
                 url={url}
                 controls={true}
-                width="100%"
-                height="100%"
+                width="960px"
+                height="560px"
               />
               {!movie.tagline ? (
                 ""
