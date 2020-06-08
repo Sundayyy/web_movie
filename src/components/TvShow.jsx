@@ -32,10 +32,7 @@ const TvShow = () => {
         let movies = response.data.results;
         setMovies(movies);
         setLoading(false);
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     fetchAPI();
   }, [currentPage, sortValue]);

@@ -97,13 +97,7 @@ const Dashbox = (props) => {
             </div>
 
             <div className="dashboard__video">
-              <ReactPlayer
-                className="react-player"
-                url={url}
-                controls={true}
-                width="960px"
-                height="560px"
-              />
+              <ReactPlayer className="react-player" url={url} controls={true} />
               {!movie.tagline ? (
                 ""
               ) : (

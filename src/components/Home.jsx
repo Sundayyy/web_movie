@@ -24,20 +24,28 @@ const Home = () => {
   const [sortValue, setSortValue] = useState("popular");
   const [bounce] = useState(true);
 
+  const [cancelled, setCancelled] = useState(false);
+
   useEffect(() => {
     const fetchAPI = async () => {
+      console.log("asdsadasd");
       const url = `${PATH_BASE}${PATH_MOVIE}/${sortValue}?api_key=${API_KEY}${PATH_PAGE}${currentPage}`;
       try {
         const response = await axios.get(url);
-        let movies = response.data.results;
-        setMovies(movies);
-        setLoading(false);
+        if (!cancelled) {
+          let movies = response.data.results;
+          setMovies(movies);
+          setLoading(false);
+        }
       } catch (error) {
-        console.log(error);
+        if (!cancelled) {
+          console.log(error);
+        }
       }
     };
     fetchAPI();
-  }, [currentPage, sortValue]);
+    setCancelled(true);
+  }, [currentPage, sortValue, cancelled]);
 
   useEffect(() => {
     const url = `${PATH_BASE}${PATH_SEARCH}${PATH_MOVIE}?api_key=${API_KEY}&query=${searchTerm}${PATH_PAGE}${DEFAULT_PAGE}`;

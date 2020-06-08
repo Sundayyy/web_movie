@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="footer">
       <nav className="footer__nav">
         <div className="footer__img">
-          <a href="https://www.themoviedb.org/">
+          <a href="https://www.themoviedb.org/" target="blank">
             <img src={TheMovieDB} alt="The movie database" />
           </a>
         </div>
