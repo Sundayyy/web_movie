@@ -1,9 +1,9 @@
 // Mixin
 @mixin responsive($breakpoint) {
   @if $breakpoint == phone {
-    @media (max-width: 34.5em) {
+    @media (max-width: 33.25em) {
       @content;
-    } // 550px
+    } // 532px
   }
 
   @if $breakpoint == tab {
@@ -13,9 +13,9 @@
   }
 
   @if $breakpoint == tablet {
-    @media (max-width: 56.25em) {
+    @media (max-width: 61.875em) {
       @content;
-    } // 900px
+    } // 990px
   }
 
   @if $breakpoint == desktop {
@@ -46,6 +46,22 @@
   &__img {
     height: 30.2rem;
     border-radius: 0.8rem;
+
+    @include responsive(desktop) {
+      height: 28.2rem;
+    }
+
+    @include responsive(tablet) {
+      height: 30.2rem;
+    }
+
+    @include responsive(tab) {
+      height: 28.2rem;
+    }
+
+    @include responsive(phone) {
+      height: 28.2rem;
+    }
   }
 
   &__title {
@@ -55,7 +71,7 @@
     width: 200px;
 
     @include responsive(desktop) {
-      width: 181px;
+      width: 169px;
     }
 
     @include responsive(tablet) {
@@ -63,11 +79,11 @@
     }
 
     @include responsive(tab) {
-      width: 159px;
+      width: 135px;
     }
 
     @include responsive(phone) {
-      width: 144px;
+      width: 135px;
     }
   }
 

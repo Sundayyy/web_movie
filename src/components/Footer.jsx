@@ -1,18 +1,127 @@
 import React from "react";
-
+import TheMovieDB from "../img/TheMovieDB.svg";
 const Footer = () => {
   return (
     <div className="footer">
-      <h3 className="footer__h3">
-        Made with
-        <svg class="heart" viewBox="0 0 32 29.6">
-          <path
-            d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
-	c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"
-          />
-        </svg>{" "}
-        By @Sunday
-      </h3>
+      <nav className="footer__nav">
+        <div className="footer__img">
+          <a href="https://www.themoviedb.org/">
+            <img src={TheMovieDB} alt="The movie database" />
+          </a>
+        </div>
+        <div>
+          <h3>THE BASICS</h3>
+          <ul>
+            <li>
+              <a href="https://www.themoviedb.org/about" target="blank">
+                About TMDB
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.themoviedb.org/about/staying-in-touch"
+                target="blank"
+              >
+                Contact Us
+              </a>
+            </li>
+            <li>
+              <a href="https://www.themoviedb.org/talk" target="blank">
+                Support Forums
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.themoviedb.org/documentation/api"
+                target="blank"
+              >
+                API
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>GET INVOLVED</h3>
+          <ul>
+            <li>
+              <a href="https://www.themoviedb.org/bible" target="blank">
+                Contribution Bible
+              </a>
+            </li>
+            <li>
+              <a href="https://www.themoviedb.org/apps" target="blank">
+                3rd Part Applications
+              </a>
+            </li>
+            <li>
+              <a href="https://www.themoviedb.org/movie/new" target="blank">
+                {" "}
+                Add New Movie{" "}
+              </a>
+            </li>
+            <li>
+              <a href="https://www.themoviedb.org/tv/new" target="blank">
+                {" "}
+                Add New TV Show
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>COMMUNITY</h3>
+          <ul>
+            <li>
+              <a
+                href="https://www.themoviedb.org/documentation/community/guidelines"
+                target="blank"
+              >
+                Guidelines
+              </a>
+            </li>
+            <li>
+              <a href="https://www.themoviedb.org/discuss" target="blank">
+                Discussions
+              </a>
+            </li>
+            <li>
+              <a href="https://www.themoviedb.org/leaderboard" target="blank">
+                Leaderboard
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/themoviedb" target="blank">
+                Twitter
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>LEGAL</h3>
+          <ul>
+            <li>
+              <a href="https://www.themoviedb.org/terms-of-use" target="blank">
+                Terms of Us
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.themoviedb.org/documentation/api/terms-of-use"
+                target="blank"
+              >
+                API Terms of Use
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.themoviedb.org/privacy-policy"
+                target="blank"
+              >
+                Privacy Policy
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   );
 };
