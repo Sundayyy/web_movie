@@ -14,7 +14,6 @@ import axios from "axios";
 import { getGenres } from "../config/genre";
 import Pagination from "./Pagination";
 import Footer from "./Footer";
-
 const TvShow = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -73,6 +72,7 @@ const TvShow = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
   return (
     <div className="container">
       <Header

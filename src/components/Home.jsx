@@ -24,28 +24,20 @@ const Home = () => {
   const [sortValue, setSortValue] = useState("popular");
   const [bounce] = useState(true);
 
-  const [cancelled, setCancelled] = useState(false);
-
   useEffect(() => {
     const fetchAPI = async () => {
-      console.log("asdsadasd");
       const url = `${PATH_BASE}${PATH_MOVIE}/${sortValue}?api_key=${API_KEY}${PATH_PAGE}${currentPage}`;
       try {
         const response = await axios.get(url);
-        if (!cancelled) {
-          let movies = response.data.results;
-          setMovies(movies);
-          setLoading(false);
-        }
+        let movies = response.data.results;
+        setMovies(movies);
+        setLoading(false);
       } catch (error) {
-        if (!cancelled) {
-          console.log(error);
-        }
+        console.log(error);
       }
     };
     fetchAPI();
-    setCancelled(true);
-  }, [currentPage, sortValue, cancelled]);
+  }, [currentPage, sortValue]);
 
   useEffect(() => {
     const url = `${PATH_BASE}${PATH_SEARCH}${PATH_MOVIE}?api_key=${API_KEY}&query=${searchTerm}${PATH_PAGE}${DEFAULT_PAGE}`;
@@ -83,6 +75,8 @@ const Home = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
+  console.log(movies);
   return (
     <div className="container">
       <Header

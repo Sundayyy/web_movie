@@ -17,4 +17,9 @@ export const PATH_IMAGE = "https://image.tmdb.org/t/p/w300";
 
 export const PATH_YOUTUBE = "https://www.youtube.com/watch?v=";
 
-export const PATH_BG_IMAGE = "https://image.tmdb.org/t/p/w1280";
+export const PATH_CREDITS = "/credits";
+export const PATH_BG_IMAGE =
+  "https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/";
+
+export const PATH__IMAGE_POSTER =
+  "https://image.tmdb.org/t/p/w300_and_h450_bestv2/";
