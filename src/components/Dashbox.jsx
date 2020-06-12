@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Fade } from "react-reveal";
 import { useParams } from "react-router";
 import axios from "axios";
-import NotFound from "./404NotFound";
+import NotFound from "./NotFound";
 import Header from "./Header";
 import Footer from "./Footer";
 import Cast from "./Cast";
 import Crew from "./Crew";
-
+import Information from "./Information";
 import {
   PATH_BASE,
   API_KEY,
@@ -25,11 +25,11 @@ const Dashbox = (props) => {
   const [movie, setMovie] = useState([]);
   const [genre, setGenre] = useState([]);
   const [url, setUrl] = useState("");
-  // const [trailers, setTrailers] = useState(null);
   const [date, setDate] = useState("2020");
   const [time, setTime] = useState(null);
   const [cast, setCast] = useState([]);
   const [crews, setCrews] = useState([]);
+
   useEffect(() => {
     const fetchApi = async () => {
       const queryString = `${PATH_BASE}${PATH_MOVIE}/${id}?api_key=${API_KEY}`;
@@ -44,8 +44,12 @@ const Dashbox = (props) => {
 
       const movieURL = `${PATH_BASE}${PATH_MOVIE}/${movie.id}/videos?api_key=${API_KEY}`;
       const { data: video } = await axios.get(movieURL);
-      const urls = `${PATH_YOUTUBE}${video.results[0].key}`;
-      setUrl(urls);
+      if (video.results[0] !== undefined) {
+        const urls = `${PATH_YOUTUBE}${video.results[0].key}`;
+        setUrl(urls);
+      } else {
+        return <NotFound />;
+      }
 
       const timeData = ChangeMinuteToHours(movie.runtime);
       setTime(timeData);
@@ -62,11 +66,17 @@ const Dashbox = (props) => {
     setTimeout(() => setLoading(false), 2000);
   };
 
+  const handleSearchChange = () => {};
+
+  const handleNotFound = () => {};
+
   const bgImg = {
     backgroundImage: `url(${PATH_BG_IMAGE}${movie.backdrop_path})`,
   };
 
   const ImagePoster = `${PATH__IMAGE_POSTER}${movie.poster_path}`;
+
+  const fullcast = `https://www.themoviedb.org/movie/${movie.id}/cast`;
 
   if (loading) {
     return (
@@ -85,7 +95,7 @@ const Dashbox = (props) => {
 
   return (
     <React.Fragment>
-      <Header />
+      <Header onSearch={handleSearchChange} onValueSelect={handleNotFound} />
       <main>
         <Fade top>
           <section className="dashbox">
@@ -186,57 +196,21 @@ const Dashbox = (props) => {
               </div>
             </div>
 
-            {/* HOLLY SHIT */}
-            {/* <div className="dashbox__media">
+            <div className="dashbox__media">
               <div className="dashbox__column-wrapper">
                 <div className="dashbox__content-column">
                   <div className="dashbox__white-column">
                     <section className="dashbox__top-billed-scroller">
-                      <h3>Top Billed Cast</h3>
-                      <Cast />
+                      <h3>Top Cast</h3>
+                      <Cast cast={cast} fullcast={fullcast} />
                     </section>
                   </div>
                   <div className="dashbox__grey-column">
-                    <section className="dashbox__split-column">
-                      <div className="dashbox__split-column__social-link">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div className="dashbox__split-column__social-link__homepage"></div>
-                      </div>
-
-                      <p>
-                        <strong>
-                          <bdi>Status</bdi>
-                        </strong>
-                        Released
-                      </p>
-
-                      <p>
-                        <strong>
-                          <bdi>Original Language</bdi>
-                        </strong>
-                        English
-                      </p>
-
-                      <p>
-                        <strong>
-                          <bdi>Budget</bdi>
-                        </strong>
-                        English
-                      </p>
-
-                      <p>
-                        <strong>
-                          <bdi>Revenue</bdi>
-                        </strong>
-                        English
-                      </p>
-                    </section>
+                    <Information movie={movie} />
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </section>
         </Fade>
       </main>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Fade } from "react-reveal";
-const NotFound = () => {
+const Error = () => {
   const styles = {
     color: "#faca31",
     padding: "20px",
@@ -13,4 +13,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default Error;

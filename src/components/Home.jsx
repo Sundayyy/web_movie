@@ -76,7 +76,6 @@ const Home = () => {
     setCurrentPage(page);
   };
 
-  console.log(movies);
   return (
     <div className="container">
       <Header
@@ -84,6 +83,7 @@ const Home = () => {
         searchTerm={searchTerm}
         sortValue={sortValue}
         onValueSelect={handleSortValue}
+        loading={loading}
       />
       <main className="flex-container">
         <div className="content-flex">

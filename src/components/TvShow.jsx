@@ -6,7 +6,6 @@ import {
   API_KEY,
   PATH_SEARCH,
   PATH_PAGE,
-  DEFAULT_PAGE,
   PATH_BASE,
   PATH_TVSHOW,
 } from "../config/configAPI";
@@ -37,7 +36,8 @@ const TvShow = () => {
   }, [currentPage, sortValue]);
 
   useEffect(() => {
-    const url = `${PATH_BASE}${PATH_SEARCH}${PATH_TVSHOW}?api_key=${API_KEY}&query=${searchTerm}${PATH_PAGE}${DEFAULT_PAGE}`;
+    const url = `${PATH_BASE}${PATH_SEARCH}${PATH_TVSHOW}?api_key=${API_KEY}&query=${searchTerm}${PATH_PAGE}${currentPage}`;
+    console.log(url);
     const fetchAPI = async () => {
       try {
         const response = await axios.get(url);
@@ -46,7 +46,7 @@ const TvShow = () => {
       } catch (error) {}
     };
     fetchAPI();
-  }, [searchTerm]);
+  }, [searchTerm, currentPage]);
 
   const handleGenres = (movie) => {
     return getGenres().map((m) =>

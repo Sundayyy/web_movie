@@ -1,5 +1,4 @@
 import React from "react";
-
 const Dropdown = ({ sortValue, onValueSelect }) => {
   return (
     <div className="dropdown">
