@@ -11,7 +11,7 @@ const Header = ({
   loading,
 }) => {
   const home = () =>
-    toast("🦄 Wellcome Home!", {
+    toast.dark("🦄 Wellcome Home!", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,

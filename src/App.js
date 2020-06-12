@@ -6,20 +6,17 @@ import TvShow from "./components/TvShow";
 import Trending from "./components/Trending";
 import DashBox from "./components/Dashbox";
 import NotFound from "./components/NotFound";
+import Movie from "./components/Movie";
 const App = () => {
-  console.log(1);
-  if (!toast.isActive("designer_refresh")) {
-    toast.dark("Wellcome to The Movie Db", {
-      toastId: "designer_refresh",
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      className: "notificationToolTip",
-    });
-  }
+  toast.dark("Wellcome to The Movie Db", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+  });
+
   return (
     <Router>
       <React.Fragment>
@@ -27,7 +24,7 @@ const App = () => {
           <Route path="/" component={Home} exact />
           <Route path="/TV_Show" component={TvShow} exact />
           <Route path="/trending" component={Trending} exact />
-          <Route path="/movie" component={Home} exact />
+          <Route path="/movie" component={Movie} exact />
           <Route path="/movie/:id" component={DashBox} exact />
           <Route path="/notfo_found" component={NotFound} />
         </Switch>

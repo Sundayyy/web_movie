@@ -17,7 +17,7 @@ const TvShow = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages] = useState(10);
+  const [totalPages, setTotalPages] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortValue, setSortValue] = useState("popular");
   const [bounce] = useState(true);
@@ -28,6 +28,8 @@ const TvShow = () => {
       try {
         const response = await axios.get(url);
         let movies = response.data.results;
+        const pages = response.data.total_pages;
+        setTotalPages(pages);
         setMovies(movies);
         setLoading(false);
       } catch (error) {}
@@ -37,7 +39,6 @@ const TvShow = () => {
 
   useEffect(() => {
     const url = `${PATH_BASE}${PATH_SEARCH}${PATH_TVSHOW}?api_key=${API_KEY}&query=${searchTerm}${PATH_PAGE}${currentPage}`;
-    console.log(url);
     const fetchAPI = async () => {
       try {
         const response = await axios.get(url);
@@ -71,6 +72,7 @@ const TvShow = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    console.log(page);
   };
 
   return (

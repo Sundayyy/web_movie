@@ -1,9 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600,700&display=swap");
 
+@mixin responsive($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 33.25em) {
+      @content;
+    } // 532px
+  }
+
+  @if $breakpoint == tab {
+    @media (max-width: 47.5em) {
+      @content;
+      //760px
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media (max-width: 61.875em) {
+      @content;
+    } // 990px
+  }
+
+  @if $breakpoint == desktop {
+    @media (max-width: 80em) {
+      @content;
+    } // 1280px
+  }
+}
 .main {
-  max-width: 100vw;
-  min-width: 100vw;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -48,6 +72,9 @@
     padding: 30px 40px 30px 40px;
     max-width: 1300px;
     width: 100%;
+    @include responsive(tab) {
+      padding: 25px 0 30px 15px;
+    }
   }
 
   &__poster {
@@ -61,6 +88,20 @@
     height: 450px;
     overflow: hidden;
     border-radius: 8px;
+
+    @include responsive(desktop) {
+      min-width: 225px;
+      height: 338px;
+    }
+    @include responsive(tablet) {
+      min-width: 200px;
+      height: 300px;
+    }
+
+    @include responsive(tab) {
+      min-width: 150px;
+      height: 225px;
+    }
   }
 
   &__image-content {
@@ -87,6 +128,9 @@
       align-items: flex-start;
       align-content: center;
       padding-left: 40px;
+      @include responsive(tab) {
+        padding-left: 10px;
+      }
     }
   }
 
@@ -95,6 +139,9 @@
     margin-bottom: 24px;
     display: flex;
     flex-wrap: wrap;
+    @include responsive(tablet) {
+      margin-bottom: 15px;
+    }
 
     &__h2 {
       font-size: 3.7rem;
@@ -102,6 +149,9 @@
       width: 100%;
       padding: 0;
       margin: 0;
+      @include responsive(tab) {
+        font-size: 3.4rem;
+      }
     }
 
     &__date {
@@ -126,6 +176,9 @@
 
         border: 1px solid rgba(100%, 100%, 100%, 0.6);
         color: rgba(100%, 100%, 100%, 0.6);
+        @include responsive(tab) {
+          padding: 0.06em 2px 0.15em 2px !important;
+        }
       }
       &__release {
         padding-left: 0;
@@ -135,12 +188,15 @@
       }
       &__genres {
         padding-left: 20px;
-
-        top: 0;
-        left: 0;
+        @include responsive(tab) {
+          padding-left: 5px;
+        }
       }
       &__runtime {
         padding-left: 20px;
+        @include responsive(tab) {
+          padding-left: 5px;
+        }
       }
     }
   }
@@ -153,6 +209,9 @@
     align-items: center;
     justify-content: flex-start;
     list-style-type: none;
+    @include responsive(tablet) {
+      margin-bottom: 10px;
+    }
   }
   &__item {
     background: transparent;
@@ -162,6 +221,9 @@
     box-sizing: border-box;
     height: 68px;
     margin-right: 20px;
+    @include responsive(tab) {
+      margin-left: 0px;
+    }
   }
   &__detail {
     width: 68px;
@@ -169,11 +231,20 @@
     display: inline-block;
     transition: transform 0.2s;
     transform: scale(1);
+    @include responsive(tablet) {
+      width: 60px;
+      height: 60px;
+    }
+
+    @include responsive(tab) {
+      width: 54px;
+      height: 54px;
+    }
   }
   &__outer {
     display: inline-block;
-    width: 68px;
-    height: 68px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     padding: 4px;
     background-color: #081c22;
@@ -226,6 +297,15 @@
       transition: all 0.2s ease-in-out;
       color: #1abc9c;
     }
+    @include responsive(tablet) {
+      width: 36px;
+      height: 36px;
+    }
+    @include responsive(tab) {
+      width: 33px;
+      height: 33px;
+      margin-right: 8px;
+    }
   }
   &__video {
     display: inline-block;
@@ -255,14 +335,12 @@
       font-size: 2.1rem;
       width: 100%;
       font-weight: 600;
+      @include responsive(tablet) {
+        padding: 5px 0 5px 0;
+      }
     }
   }
 
-  &__people {
-    margin-top: 20px;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
   &__people {
     display: flex;
     flex-wrap: wrap;
@@ -273,6 +351,9 @@
     list-style-position: inside;
     margin-top: 20px;
     list-style-type: none;
+    @include responsive(tablet) {
+      margin-top: 10px;
+    }
   }
   &__profile {
     background-color: transparent;
@@ -282,6 +363,9 @@
     text-align: left;
     min-width: 140px;
     margin: 0 0 14px 0;
+    @include responsive(tablet) {
+      margin: 0 0 5px 0;
+    }
     & p {
       font-size: 1.5rem;
     }
@@ -305,20 +389,35 @@
   }
   &__content-column {
     max-width: 1300px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     align-content: flex-start;
     padding: 30px 40px 30px 40px;
+    @include responsive(tab) {
+      padding: 20px 20px 20px 20px;
+    }
   }
   &__white-column {
     max-width: 960px;
-    width: calc(100vw -80px - 260px);
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex: 0 1 auto;
     padding-right: 30px;
+    @include responsive(desktop) {
+      max-width: 900px;
+      min-width: 722px;
+    }
+    @include responsive(tablet) {
+      max-width: 756px;
+      min-width: 550px;
+    }
+    @include responsive(tab) {
+      max-width: 640px;
+      min-width: 440px;
+    }
   }
   &__top-billed-scroller {
     display: block;
@@ -351,14 +450,28 @@
       border-radius: 8px;
       overflow: hidden;
       text-align: center;
-
       min-width: 140px;
       width: 100%;
+      @include responsive(desktop) {
+        min-width: 120px;
+      }
+      @include responsive(tablet) {
+        min-width: 100px;
+      }
       & img {
         min-width: 138px;
-        width: 138px;
+        width: 100%;
         height: 175px;
         display: block;
+        @include responsive(desktop) {
+          min-width: 100px;
+          height: 150px;
+        }
+        @include responsive(tablet) {
+          min-width: 80px;
+          height: 120px;
+        }
+
         &:hover {
           opacity: 0.7;
         }
@@ -399,10 +512,22 @@
   }
 
   &__grey-column {
-    min-width: 260px;
-    width: 260px;
+    min-width: 200px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    @include responsive(desktop) {
+      min-width: 200px;
+      max-width: 205px;
+    }
+    @include responsive(tablet) {
+      min-width: 160px;
+      max-width: 200px;
+    }
+    @include responsive(tab) {
+      min-width: 69px;
+      max-width: 78px;
+    }
   }
 
   &__split-column {
@@ -412,6 +537,9 @@
     flex-wrap: wrap;
     max-width: 300px;
     width: 100%;
+    @include responsive(tab) {
+      margin-left: 0px;
+    }
     & p {
       width: 100%;
       padding-top: 2rem;
@@ -439,8 +567,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 4rem;
-  color: #c0392b;
+  font-size: 3rem;
+  color: #fff;
 }
 
 .dashbox__none {

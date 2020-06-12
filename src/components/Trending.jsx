@@ -21,7 +21,7 @@ const People = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages] = useState(10);
+  const [totalPages, setTotalPages] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
   const [sortValue, setSortValue] = useState("all");
   const [bounce] = useState(true);
@@ -32,6 +32,8 @@ const People = () => {
       try {
         const response = await axios.get(url);
         let movies = response.data.results;
+        const pages = response.data.total_pages;
+        setTotalPages(pages);
         setMovies(movies);
         setLoading(false);
       } catch (error) {
