@@ -24,7 +24,7 @@ const TvShow = () => {
 
   useEffect(() => {
     const fetchAPI = async () => {
-      const url = `${PATH_BASE}${PATH_TVSHOW}/${sortValue}?api_key=${API_KEY}${PATH_PAGE}${currentPage}`;
+      const url = `${PATH_BASE}${PATH_TVSHOW}/${sortValue}?api_key=${API_KEY}${PATH_PAGE}3`;
       try {
         const response = await axios.get(url);
         let movies = response.data.results;
@@ -72,7 +72,6 @@ const TvShow = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    console.log(page);
   };
 
   return (

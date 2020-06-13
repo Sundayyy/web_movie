@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallBackk } from "react";
 import Header from "./Header";
 import MovieList from "./MovieList";
 import MovieLoader from "./MovieLoader";
@@ -23,7 +23,7 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortValue, setSortValue] = useState("popular");
   const [bounce] = useState(true);
-
+  console.log("render");
   useEffect(() => {
     const fetchAPI = async () => {
       const url = `${PATH_BASE}${PATH_MOVIE}/${sortValue}?api_key=${API_KEY}${PATH_PAGE}${currentPage}`;
@@ -74,10 +74,12 @@ const Home = () => {
     }
   };
 
-  const handlePageChange = (page) => {
+  // const handlePageChange = (page) => {
+  //   setCurrentPage(page);
+  // };
+  const handlePageChange = useCallBackk((page) => {
     setCurrentPage(page);
-  };
-
+  });
   return (
     <div className="container">
       <Header
@@ -103,4 +105,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);
