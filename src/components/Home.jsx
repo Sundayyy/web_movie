@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallBackk } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import MovieList from "./MovieList";
 import MovieLoader from "./MovieLoader";
@@ -74,12 +74,13 @@ const Home = () => {
     }
   };
 
-  // const handlePageChange = (page) => {
-  //   setCurrentPage(page);
-  // };
-  const handlePageChange = useCallBackk((page) => {
+  const handlePageChange = (page) => {
     setCurrentPage(page);
-  });
+  };
+  // const handlePageChange = useCallBackk((page) => {
+  //   setCurrentPage(page);
+  // });
+
   return (
     <div className="container">
       <Header
