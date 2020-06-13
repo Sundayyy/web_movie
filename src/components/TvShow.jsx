@@ -24,7 +24,7 @@ const TvShow = () => {
 
   useEffect(() => {
     const fetchAPI = async () => {
-      const url = `${PATH_BASE}${PATH_TVSHOW}/${sortValue}?api_key=${API_KEY}${PATH_PAGE}3`;
+      const url = `${PATH_BASE}${PATH_TVSHOW}/${sortValue}?api_key=${API_KEY}${PATH_PAGE}${currentPage}`;
       try {
         const response = await axios.get(url);
         let movies = response.data.results;

@@ -2,7 +2,12 @@ import React from "react";
 
 const Crew = ({ crews }) => {
   let className = "dashbox__people";
-  if (crews.length === 0 || crews.length < 2) {
+  if (
+    crews.length === 0 ||
+    crews.length < 3 ||
+    crews.length < 2 ||
+    crews.length < 4
+  ) {
     return (className = "dashbox__none");
   } else {
     return (
