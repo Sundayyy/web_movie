@@ -45,7 +45,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  height: 100vh;
   font-family: "Source Sans Pro", Arial, sans-serif;
 
   &__header {
@@ -292,6 +291,7 @@
     align-content: center;
     align-items: center;
     font-size: small;
+    cursor: pointer;
     &:hover {
       transform: scale(1.1);
       transition: all 0.2s ease-in-out;

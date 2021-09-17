@@ -41,7 +41,7 @@ const Dashbox = (props) => {
       setGenre(genres);
       setMovie(movie);
       setDate(dates);
-
+      console.log("movie", movie);
       const movieURL = `${PATH_BASE}${PATH_MOVIE}/${movie.id}/videos?api_key=${API_KEY}`;
       const { data: video } = await axios.get(movieURL);
       if (video.results[0] !== undefined) {
